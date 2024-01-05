@@ -3,191 +3,119 @@ import { Link } from 'react-router-dom';
 import Header from '../Header/header';
 import Footer from '../Footer/footer';
 
-const Feature = () => {
+const ContactInfoItem = ({ iconClass, title, content }) => {
   return (
-      <div>
-          <Header/>
-      {/* Hero Start */}
-     <div className="container-fluid bg-primary hero-header mb-5">
+    <div className="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+      <div className="contact-info-item position-relative bg-primary text-center p-3">
+        <div className="border py-5 px-3">
+          <i className={`fa ${iconClass} fa-3x text-dark mb-4`}></i>
+          <h5 className="text-white">{title}</h5>
+          <h5 className="fw-light text-white">{content}</h5>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Contact = () => {
+    const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add your form submission logic here
+  };
+  return (
+    <div>
+      <Header/>
+      <div className="container-fluid bg-primary hero-header mb-5">
       <div className="container text-center">
         <h1 className="display-4 text-white mb-3 animated slideInDown">Contact</h1>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb justify-content-center mb-0 animated slideInDown">
-            <li className="breadcrumb-item"><Link className="text-white" to="/">Home</Link></li>
-            <li className="breadcrumb-item"><Link className="text-white" to="/pages">Pages</Link></li>
+            <li className="breadcrumb-item">
+              <Link to="/" className="text-white">Home</Link>
+            </li>
+            <li className="breadcrumb-item">
+              <Link to="/pages" className="text-white">Pages</Link>
+            </li>
             <li className="breadcrumb-item text-white active" aria-current="page">Contact</li>
           </ol>
         </nav>
       </div>
     </div>
-          {/* Hero End */}
+      {/* Contact Info Start */}
+      <div className="container-fluid py-5">
+        <div className="container">
+          <div className="row g-4">
+            <ContactInfoItem iconClass="fa-map-marker-alt" title="Office Address" content="123 Street, New York, USA" />
+            <ContactInfoItem iconClass="fa-phone-alt" title="Call Us" content="+012 345 67890" />
+            <ContactInfoItem iconClass="fa-envelope" title="Mail Us" content="info@example.com" />
+          </div>
+        </div>
+      </div>
+      {/* Contact Info End */}
 
-          
-          {/* Feature start*/}
-     <div className="container-fluid py-5">
-      <div className="container">
-        <div className="row g-4">
-          <div className="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-            <div className="feature-item position-relative bg-primary text-center p-3">
-              <div className="border py-5 px-3">
-                <i className="fa fa-leaf fa-3x text-dark mb-4"></i>
-                <h5 className="text-white mb-0">100% Natural</h5>
+      {/* Contact Start */}
+      <div className="container-fluid py-5">
+        <div className="container">
+          <div className="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
+            <h1 className="text-primary mb-5"><span className="fw-light text-dark">If You Have Any Query,</span> Please Contact Us</h1>
+          </div>
+          <div className="row g-5">
+            <div className="col-lg-7 wow fadeIn" data-wow-delay="0.1s">
+              <p className="mb-4">
+                The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes.
+                Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.
+              </p>
+              <div className="wow fadeIn" data-wow-delay="0.3s">
+                 <form onSubmit={handleSubmit}>
+                  <div className="row g-3">
+                    <div className="col-md-6">
+                      <div className="form-floating">
+                        <input type="text" className="form-control" id="name" placeholder="Your Name" />
+                        <label htmlFor="name">Your Name</label>
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-floating">
+                        <input type="email" className="form-control" id="email" placeholder="Your Email" />
+                        <label htmlFor="email">Your Email</label>
+                      </div>
+                    </div>
+                    <div className="col-12">
+                      <div className="form-floating">
+                        <input type="text" className="form-control" id="subject" placeholder="Subject" />
+                        <label htmlFor="subject">Subject</label>
+                      </div>
+                    </div>
+                    <div className="col-12">
+                      <div className="form-floating">
+                        <textarea className="form-control" placeholder="Leave a message here" id="message" style={{ height: '150px' }}></textarea>
+                        <label htmlFor="message">Message</label>
+                      </div>
+                    </div>
+                    <div className="col-12">
+                      <button className="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
-          </div>
-          <div className="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-            <div className="feature-item position-relative bg-primary text-center p-3">
-              <div className="border py-5 px-3">
-                <i className="fa fa-tint-slash fa-3x text-dark mb-4"></i>
-                <h5 className="text-white mb-0">Anti Hair Fall</h5>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-            <div className="feature-item position-relative bg-primary text-center p-3">
-              <div className="border py-5 px-3">
-                <i className="fa fa-times fa-3x text-dark mb-4"></i>
-                <h5 className="text-white mb-0">Hypoallergenic</h5>
-              </div>
+            <div className="col-lg-5 wow fadeIn" data-wow-delay="0.5s">
+              <iframe
+                className="w-100 h-100"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
+                frameBorder="0"
+                style={{ minHeight: '300px', border: '0' }}
+                allowFullScreen=""
+                aria-hidden="false"
+                tabIndex="0"
+              ></iframe>
             </div>
           </div>
         </div>
       </div>
-    </div>
-          {/* Feature start*/}
-          
-     <div className="container-fluid how-to-use bg-primary my-5 py-5">
-      <div className="container text-white py-5">
-        <div className="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
-          <h1 className="text-white mb-3"><span className="fw-light text-dark">How To Use Our</span> Natural & Organic <span className="fw-light text-dark">Hair Shampoo</span></h1>
-          <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, erat non malesuada consequat, nibh erat tempus risus.</p>
-        </div>
-        <div className="row g-5">
-          <div className="col-lg-4 text-center wow fadeIn" data-wow-delay="0.1s">
-            <div className="btn-square rounded-circle border mx-auto mb-4" style={{ width: '120px', height: '120px' }}>
-              <i className="fa fa-home fa-3x text-dark"></i>
-            </div>
-            <h5 className="text-white">Wash Hair With Water</h5>
-            <hr className="w-25 bg-light my-2 mx-auto" />
-            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, erat non malesuada consequat.</span>
-          </div>
-          <div className="col-lg-4 text-center wow fadeIn" data-wow-delay="0.3s">
-            <div className="btn-square rounded-circle border mx-auto mb-4" style={{ width: '120px', height: '120px' }}>
-              <i className="fa fa-home fa-3x text-dark"></i>
-            </div>
-            <h5 className="text-white">Apply Shampoo On Hair</h5>
-            <hr className="w-25 bg-light my-2 mx-auto" />
-            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, erat non malesuada consequat.</span>
-          </div>
-          <div className="col-lg-4 text-center wow fadeIn" data-wow-delay="0.5s">
-            <div className="btn-square rounded-circle border mx-auto mb-4" style={{ width: '120px', height: '120px' }}>
-              <i className="fa fa-home fa-3x text-dark"></i>
-            </div>
-            <h5 className="text-white">Wait 5 Mins And Wash</h5>
-            <hr className="w-25 bg-light my-2 mx-auto" />
-            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, erat non malesuada consequat.</span>
-          </div>
-        </div>
-      </div>
-    </div>     
+      {/* Contact End */}
 
-
-     <div className="container-fluid py-5">
-      <div className="container">
-        <div className="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
-          <h1 className="text-primary mb-3"><span className="fw-light text-dark">Best Benefits Of Our</span> Natural Hair Shampoo</h1>
-          <p className="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet, erat non malesuada consequat, nibh erat tempus risus.</p>
-        </div>
-        <div className="row g-4 align-items-center">
-          <div className="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-            <div className="row g-5">
-              {/* First Benefit */}
-              <div className="col-12 d-flex">
-                <div className="btn-square rounded-circle border flex-shrink-0" style={{ width: '80px', height: '80px' }}>
-                  <i className="fa fa-check fa-2x text-primary"></i>
-                </div>
-                <div className="ps-3">
-                  <h5>Natural & Organic</h5>
-                  <hr className="w-25 bg-primary my-2" />
-                  <span>Lorem ipsum dolor sit amet adipiscing elit aliquet.</span>
-                </div>
-              </div>
-
-              {/* Second Benefit */}
-              <div className="col-12 d-flex">
-                <div className="btn-square rounded-circle border flex-shrink-0" style={{ width: '80px', height: '80px' }}>
-                  <i className="fa fa-check fa-2x text-primary"></i>
-                </div>
-                <div className="ps-3">
-                  <h5>Anti Hair Fall</h5>
-                  <hr className="w-25 bg-primary my-2" />
-                  <span>Lorem ipsum dolor sit amet adipiscing elit aliquet.</span>
-                </div>
-              </div>
-
-              {/* Third Benefit */}
-              <div className="col-12 d-flex">
-                <div className="btn-square rounded-circle border flex-shrink-0" style={{ width: '80px', height: '80px' }}>
-                  <i className="fa fa-check fa-2x text-primary"></i>
-                </div>
-                <div className="ps-3">
-                  <h5>Anti-dandruff</h5>
-                  <hr className="w-25 bg-primary my-2" />
-                  <span>Lorem ipsum dolor sit amet adipiscing elit aliquet.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Image Section */}
-          <div className="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-            <img className="img-fluid animated pulse infinite" src="assets/img/shampoo.png" alt="Shampoo" />
-          </div>
-
-          <div className="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-            <div className="row g-5">
-              {/* Fourth Benefit */}
-              <div className="col-12 d-flex">
-                <div className="btn-square rounded-circle border flex-shrink-0" style={{ width: '80px', height: '80px' }}>
-                  <i className="fa fa-check fa-2x text-primary"></i>
-                </div>
-                <div className="ps-3">
-                  <h5>No Internal Side Effect</h5>
-                  <hr className="w-25 bg-primary my-2" />
-                  <span>Lorem ipsum dolor sit amet adipiscing elit aliquet.</span>
-                </div>
-              </div>
-
-              {/* Fifth Benefit */}
-              <div className="col-12 d-flex">
-                <div className="btn-square rounded-circle border flex-shrink-0" style={{ width: '80px', height: '80px' }}>
-                  <i className="fa fa-check fa-2x text-primary"></i>
-                </div>
-                <div className="ps-3">
-                  <h5>No Skin Irritation</h5>
-                  <hr className="w-25 bg-primary my-2" />
-                  <span>Lorem ipsum dolor sit amet adipiscing elit aliquet.</span>
-                </div>
-              </div>
-
-              {/* Sixth Benefit */}
-              <div className="col-12 d-flex">
-                <div className="btn-square rounded-circle border flex-shrink-0" style={{ width: '80px', height: '80px' }}>
-                  <i className="fa fa-check fa-2x text-primary"></i>
-                </div>
-                <div className="ps-3">
-                  <h5>No Artificial Smell</h5>
-                  <hr className="w-25 bg-primary my-2" />
-                  <span>Lorem ipsum dolor sit amet adipiscing elit aliquet.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div className="container-fluid newsletter bg-primary py-5 my-5">
+         <div className="container-fluid newsletter bg-primary py-5 my-5">
         <div className="container py-5">
         <div className="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style={{ maxWidth: '600px' }}>
             <h1 className="text-white mb-3">
@@ -211,11 +139,10 @@ const Feature = () => {
             </div>
         </div>
         </div>
-    </div>
-          
-    <Footer />
+      </div>
+      <Footer/>
     </div>
   );
 };
 
-export default Feature;
+export default Contact;

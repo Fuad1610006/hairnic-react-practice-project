@@ -3,6 +3,9 @@ import Header from './components/Header/header';
 import Footer from './components/Footer/footer';
 import Home from './components/Home/home';
 import About from './components/About/about';
+import Usage from './components/Usage/usage';
+import Feature from './components/Feature/feature';
+import Blog from './components/Blog/blog';
 function App() {
   return (
     <BrowserRouter>
@@ -11,11 +14,12 @@ function App() {
           <Route path="/footer" element={<Footer />} />   
         <Route path="/" element={<Home />} />
          <Route path="/about" element={<About />} />
-          {/* <Route path="/blog" element={<Blog />} />
+         <Route path="/usage" element={<Usage />} />
+        <Route path="/feature" element={<Feature />} />
+        <Route path="/blog" element={<Blog />} />
+          {/* 
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/shop" element={<Shop />} />         
-          <Route path="/services" element={<Services />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/register" element={<Register />} /> */}

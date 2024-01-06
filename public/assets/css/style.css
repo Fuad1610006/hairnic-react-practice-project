@@ -311,6 +311,21 @@ img.animated.pulse {
     background: var(--bs-dark);
 }
 
+.testimonial-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto; /* This centers the image */
+  display: block;
+}
+
+
 
 /*** Blog ***/
 .blog-item {
